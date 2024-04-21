@@ -21,20 +21,20 @@ object toDo extends App {
         case _ =>    System.exit(0)
     }
     }
-    def remTask(taskKey:String)={
-      allTasks=allTasks-taskKey.toInt
+    private def remTask(taskKey:String)={
+      allTasks=allTasks--List(taskKey.toInt)
       taskNum = taskNum - 1
       behaviour()
     }
-    def getTask()={
+    private def getTask() ={
       println("Write your task")
       val task = readLine ()
       taskNum = taskNum + 1
       val tsk=taskNum
       allTasks= allTasks +(tsk->task)
     }
-    def listTasks()={
-      allTasks.map(println)
+     def  listTasks():Unit ={
+      allTasks.foreach(println)
     }
   }
   val aTask= new Task()
