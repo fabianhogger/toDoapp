@@ -10,18 +10,16 @@ object toDo extends App {
       listTasks()
       println("press n to to tick task,press a to add, anything else to quit")
       val input = readLine()
-      if(input=="n"){
+      val beh=input match{
+        case "n" =>
         println("write number of task to tick Done")
         val tick = readLine()
         remTask(tick)
-      }
-      else if(input=="a"){
-        getTask()
-        behaviour()
-      }
-      else{
-        System.exit(0)
-      }
+        case "a"=>
+          getTask()
+          behaviour()
+        case _ =>    System.exit(0)
+    }
     }
     def remTask(taskKey:String)={
       allTasks=allTasks-taskKey.toInt
